@@ -1,3 +1,33 @@
 spring:
   application:
     name: mcp
+  ai:
+    chat:
+      client:
+        enable: true
+    ollama:
+      base-url: http://localhost:11434
+      embedding:
+        model: mxbai-embed-large:latest
+      chat:
+        model: llama3.1:8b #for normal LLM
+        temperature: 0.7
+    mcp:  #MCP server configurations
+      client:
+        stdio:
+          servers-configuration: classpath:servers.json
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
+
+server:
+  port: 9008
+
+
+#MCP server configurations
+
